@@ -186,7 +186,8 @@
             } else if (key === 'Enter' || key === '=') {
                 calculateResult();
             } else if (key === 'Backspace') {
-                 deleteLastCharacter();
+                clearDisplay();
+                deleteLastCharacter();
             }
         });
          // Toggle between dark and light theme
