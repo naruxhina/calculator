@@ -68,10 +68,63 @@
         .operator:active {
             background: #e68900;
         }
+ button:active {
+            transform: scale(0.9);
+            background: #ccc;
+        }
+
+        .operator {
+            background: #ff9800;
+        }
+
+        .operator:active {
+            background: #e68900;
+        }
+
+        /* Dark Theme */
+        .dark-theme body {
+            background-color: #121212;
+            color: #fff;
+        }
+
+        .dark-theme .calculator {
+            background: #1e1e1e;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .dark-theme #display {
+            background: #2a2a2a;
+            color: #fff;
+        }
+
+        .dark-theme button {
+            background: #333;
+            color: white;
+        }
+
+        .dark-theme button:active {
+            background: #444;
+        }
+
+        /* Icon for theme toggle */
+        .theme-toggle {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+            font-size: 1.5em;
+            color: #333;
+            transition: color 0.3s;
+        }
+
+        .dark-theme .theme-toggle {
+            color: #fff;
+        }
     </style>
 </head>
 <body>
     <div class="calculator">
+        <div class="theme-toggle" id="themeToggle" onclick="toggleTheme()">🌙</div>
         <input type="text" id="display" readonly>
         <div class="buttons">
             <button class="operator" onclick="clearDisplay()">C</button>
@@ -129,6 +182,19 @@
                 clearDisplay();
             }
         });
+         // Toggle between dark and light theme
+        function toggleTheme() {
+            const body = document.body;
+            const themeIcon = document.getElementById("themeToggle");
+            
+            if (body.classList.contains("dark-theme")) {
+                body.classList.remove("dark-theme");
+                themeIcon.textContent = "🌙"; // Moon icon for dark theme
+            } else {
+                body.classList.add("dark-theme");
+                themeIcon.textContent = "🌞"; // Sun icon for light theme
+            }
+        }
     </script>
 </body>
 </html>
