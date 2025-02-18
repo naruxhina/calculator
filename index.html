@@ -120,9 +120,37 @@
         .dark-theme .theme-toggle {
             color: #fff;
         }
+        .container {
+            text-align: center;
+            width: 100%;
+            max-width: 350px;
+            padding: 20px;
+        }
+
+        .calculator-label {
+            font-size: 2em;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 20px;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .calculator {
+            background: #fff;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 100%;
+            transition: background 0.3s, box-shadow 0.3s;
+        }
+
     </style>
 </head>
 <body>
+    <div class="container">
+        <!-- Label for the Calculator -->
+        <div class="calculator-label">Calculator</div>
     <div class="calculator">
         <div class="theme-toggle" id="themeToggle" onclick="toggleTheme()">🌙</div>
         <input type="text" id="display" readonly>
