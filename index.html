@@ -147,6 +147,8 @@
             <button onclick="appendToDisplay('.')">.</button>
             <button class="operator" onclick="calculateResult()">=</button>
             <button class="operator" onclick="appendToDisplay('+')">+</button>
+            <button class="operator" onclick="deleteLastCharacter()">⌫</button>
+            
         </div>
     </div>
 
@@ -179,7 +181,7 @@
             } else if (key === 'Enter' || key === '=') {
                 calculateResult();
             } else if (key === 'Backspace') {
-                clearDisplay();
+                 deleteLastCharacter();
             }
         });
          // Toggle between dark and light theme
