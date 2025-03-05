@@ -4,27 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Modern Calculator</title>
-     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <style>
         body {
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
+            background-color: #121212;
             font-family: 'Roboto', sans-serif;
             margin: 0;
-            transition: background-color 0.3s, color 0.3s;
-            background-color: #f4f4f4;
         }
 
         .calculator {
-           background: #fff;
+            background: #1e1e1e;
             padding: 20px;
             border-radius: 15px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
             text-align: center;
-            width: 100%;
-            transition: background 0.3s, box-shadow 0.3s;
+            width: 300px;
         }
 
         #display {
@@ -35,11 +32,10 @@
             padding: 10px;
             border: none;
             border-radius: 10px;
-            background: #f0f0f0;
-            color: #333;
+            background: #2a2a2a;
+            color: #fff;
             margin-bottom: 20px;
             outline: none;
-            transition: background-color 0.3s, color 0.3s;
         }
 
         .buttons {
@@ -72,7 +68,8 @@
         .operator:active {
             background: #e68900;
         }
- button:active {
+
+        button:active {
             transform: scale(0.9);
             background: #ccc;
         }
@@ -124,28 +121,61 @@
         .dark-theme .theme-toggle {
             color: #fff;
         }
-        .container {
-            text-align: center;
-            width: 100%;
-            max-width: 350px;
-            padding: 20px;
+        button:active {
+            transform: scale(0.9);
+            background: #ccc;
         }
 
-        .calculator-label {
-            font-size: 2em;
-            font-weight: bold;
+        .operator {
+            background: #ff9800;
+        }
+
+        .operator:active {
+            background: #e68900;
+        }
+
+        /* Dark Theme */
+        .dark-theme body {
+            background-color: #121212;
+            color: #fff;
+        }
+
+        .dark-theme .calculator {
+            background: #1e1e1e;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .dark-theme #display {
+            background: #2a2a2a;
+            color: #fff;
+        }
+
+        .dark-theme button {
+            background: #333;
+            color: white;
+        }
+
+        .dark-theme button:active {
+            background: #444;
+        }
+
+        /* Icon for theme toggle */
+        .theme-toggle {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+            font-size: 1.5em;
             color: #333;
-            margin-bottom: 20px;
-            font-family: 'Roboto', sans-serif;
+            transition: color 0.3s;
         }
 
-
+        .dark-theme .theme-toggle {
+            color: #fff;
+        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <!-- Label for the Calculator -->
-        <div class="calculator-label">Calculator</div>
     <div class="calculator">
         <div class="theme-toggle" id="themeToggle" onclick="toggleTheme()">🌙</div>
         <input type="text" id="display" readonly>
@@ -170,8 +200,9 @@
             <button onclick="appendToDisplay('.')">.</button>
             <button class="operator" onclick="calculateResult()">=</button>
             <button class="operator" onclick="appendToDisplay('+')">+</button>
-            <button class="operator" onclick="deleteLastCharacter()">⌫</button>
-            
+
+            <link rel="icon" type="image/png" href="image/favicon.ico">
+
         </div>
     </div>
 
@@ -194,13 +225,8 @@
                 clearDisplay();
             }
         }
-
-         function deleteLastCharacter() {
-            const display = document.getElementById("display");
-            display.value = display.value.slice(0, -1);
-        }
           // Add keyboard event listeners
-        document.addEventListener("keydown", function(event) {
+          document.addEventListener("keydown", function(event) {
             const display = document.getElementById("display");
             const key = event.key;
 
@@ -210,10 +236,9 @@
                 calculateResult();
             } else if (key === 'Backspace') {
                 clearDisplay();
-                deleteLastCharacter();
             }
         });
-         // Toggle between dark and light theme
+        // Toggle between dark and light theme
         function toggleTheme() {
             const body = document.body;
             const themeIcon = document.getElementById("themeToggle");
