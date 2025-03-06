@@ -78,7 +78,6 @@
 </head>
 <body>
     <div class="calculator">
-        <div class="theme-toggle" id="themeToggle" onclick="toggleTheme()">🌙</div>
         <input type="text" id="display" readonly>
         <div class="buttons">
             <button class="operator" onclick="clearDisplay()">C</button>
@@ -143,19 +142,6 @@
                 clearDisplay();
             }
         });
-        // Toggle between dark and light theme
-        function toggleTheme() {
-            const body = document.body;
-            const themeIcon = document.getElementById("themeToggle");
-            
-            if (body.classList.contains("dark-theme")) {
-                body.classList.remove("dark-theme");
-                themeIcon.textContent = "🌙"; // Moon icon for dark theme
-            } else {
-                body.classList.add("dark-theme");
-                themeIcon.textContent = "🌞"; // Sun icon for light theme
-            }
-        }
     </script>
 </body>
 </html>
