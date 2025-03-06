@@ -125,6 +125,11 @@
                 clearDisplay();
             }
         }
+
+        function deleteLastCharacter() {
+            const display = document.getElementById("display");
+            display.value = display.value.slice(0, -1);
+        }
           // Add keyboard event listeners
           document.addEventListener("keydown", function(event) {
             const display = document.getElementById("display");
